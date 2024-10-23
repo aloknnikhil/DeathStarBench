@@ -1,0 +1,246 @@
+apiVersion: v1
+entries:
+  mcrouter:
+  - apiVersion: v2
+    appVersion: 0.40.0
+    created: "2024-10-23T10:42:24.563670213-07:00"
+    dependencies:
+    - condition: mcrouter.memcached.enabled
+      name: memcached
+      repository: https://charts.bitnami.com/bitnami
+      version: ~5.15
+    description: Mcrouter is a memcached protocol router for scaling memcached deployments.
+    digest: 951593306e74039b7d7692c63fedaf0faae2b6df1f71a3286b48fbcd05e6cdc9
+    home: https://github.com/facebook/mcrouter
+    icon: https://img.stackshare.io/service/4370/G7xgmEZ.png
+    maintainers:
+    - email: david@davidkarlsen.com
+      name: davidkarlsen
+    name: mcrouter
+    sources:
+    - https://github.com/facebook/mcrouter
+    - https://github.com/evryfs/docker-mcrouter
+    urls:
+    - charts/mcrouter-0.3.0.tgz
+    version: 0.3.0
+  mongodb-sharded:
+  - annotations:
+      category: Database
+    apiVersion: v2
+    appVersion: 6.0.0
+    created: "2024-10-23T10:42:24.566570726-07:00"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 1.x.x
+    description: MongoDB(R) is an open source NoSQL database that uses JSON for data
+      storage. MongoDB(TM) Sharded improves scalability and reliability for large
+      datasets by distributing data across multiple machines.
+    digest: c40f18dc440c1ecc3a3023dcb718aa3b1ad5abad18aa40563dff2bb710c1af36
+    home: https://github.com/bitnami/charts/tree/master/bitnami/mongodb-sharded
+    icon: https://bitnami.com/assets/stacks/mongodb/img/mongodb-stack-220x234.png
+    keywords:
+    - mongodb
+    - database
+    - nosql
+    - cluster
+    - replicaset
+    - replication
+    maintainers:
+    - name: Bitnami
+      url: https://github.com/bitnami/charts
+    name: mongodb-sharded
+    sources:
+    - https://github.com/bitnami/containers/tree/main/bitnami/mongodb-sharded
+    - https://mongodb.org
+    urls:
+    - charts/mongodb-sharded-6.0.1.tgz
+    version: 6.0.1
+  redis:
+  - annotations:
+      category: Database
+    apiVersion: v2
+    appVersion: 7.0.5
+    created: "2024-10-23T10:42:24.569943933-07:00"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Redis(R) is an open source, advanced key-value store. It is often
+      referred to as a data structure server since keys can contain strings, hashes,
+      lists, sets and sorted sets.
+    digest: 3e522ca0f8dc7d23df0de67b3e991ffc243d2459ea514eca705a56ba21aabd1a
+    home: https://github.com/bitnami/charts/tree/main/bitnami/redis
+    icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+    keywords:
+    - redis
+    - keyvalue
+    - database
+    maintainers:
+    - name: Bitnami
+      url: https://github.com/bitnami/charts
+    name: redis
+    sources:
+    - https://github.com/bitnami/containers/tree/main/bitnami/redis
+    urls:
+    - charts/redis-17.3.7.tgz
+    version: 17.3.7
+  redis-cluster:
+  - annotations:
+      category: Database
+    apiVersion: v2
+    appVersion: 7.0.4
+    created: "2024-10-23T10:42:24.574483425-07:00"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 1.x.x
+    description: Redis(R) is an open source, scalable, distributed in-memory cache
+      for applications. It can be used to store and serve data in the form of strings,
+      hashes, lists, sets and sorted sets.
+    digest: ddf4577dfad305bf874d9d145a3f7961c9422b86b54dc4213bdc85596fd21f29
+    home: https://github.com/bitnami/charts/tree/master/bitnami/redis-cluster
+    icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+    keywords:
+    - redis
+    - keyvalue
+    - database
+    maintainers:
+    - name: Bitnami
+      url: https://github.com/bitnami/charts
+    name: redis-cluster
+    sources:
+    - https://github.com/bitnami/containers/tree/main/bitnami/redis
+    - http://redis.io/
+    urls:
+    - charts/redis-cluster-8.1.4.tgz
+    version: 8.1.4
+  social-network:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-10-23T10:42:24.561833037-07:00"
+    dependencies:
+    - name: compose-post-service
+      repository: ""
+      version: 0.1.0
+    - condition: global.redis.standalone.enabled
+      name: home-timeline-redis
+      repository: ""
+      version: 0.1.0
+    - name: home-timeline-service
+      repository: ""
+      version: 0.1.0
+    - name: jaeger
+      repository: ""
+      version: 0.1.0
+    - name: media-service
+      repository: ""
+      version: 0.1.0
+    - condition: global.mongodb.standalone.enabled
+      name: media-mongodb
+      repository: ""
+      version: 0.1.0
+    - condition: global.memcached.standalone.enabled
+      name: media-memcached
+      repository: ""
+      version: 0.1.0
+    - name: media-frontend
+      repository: ""
+      version: 0.1.0
+    - name: nginx-thrift
+      repository: ""
+      version: 0.1.0
+    - condition: global.memcached.standalone.enabled
+      name: post-storage-memcached
+      repository: ""
+      version: 0.1.0
+    - condition: global.mongodb.standalone.enabled
+      name: post-storage-mongodb
+      repository: ""
+      version: 0.1.0
+    - name: post-storage-service
+      repository: ""
+      version: 0.1.0
+    - condition: global.mongodb.standalone.enabled
+      name: social-graph-mongodb
+      repository: ""
+      version: 0.1.0
+    - condition: global.redis.standalone.enabled
+      name: social-graph-redis
+      repository: ""
+      version: 0.1.0
+    - name: social-graph-service
+      repository: ""
+      version: 0.1.0
+    - name: text-service
+      repository: ""
+      version: 0.1.0
+    - name: unique-id-service
+      repository: ""
+      version: 0.1.0
+    - condition: global.memcached.standalone.enabled
+      name: url-shorten-memcached
+      repository: ""
+      version: 0.1.0
+    - condition: global.mongodb.standalone.enabled
+      name: url-shorten-mongodb
+      repository: ""
+      version: 0.1.0
+    - name: url-shorten-service
+      repository: ""
+      version: 0.1.0
+    - condition: global.memcached.standalone.enabled
+      name: user-memcached
+      repository: ""
+      version: 0.1.0
+    - name: user-mention-service
+      repository: ""
+      version: 0.1.0
+    - condition: global.mongodb.standalone.enabled
+      name: user-mongodb
+      repository: ""
+      version: 0.1.0
+    - name: user-service
+      repository: ""
+      version: 0.1.0
+    - condition: global.mongodb.standalone.enabled
+      name: user-timeline-mongodb
+      repository: ""
+      version: 0.1.0
+    - condition: global.redis.standalone.enabled
+      name: user-timeline-redis
+      repository: ""
+      version: 0.1.0
+    - name: user-timeline-service
+      repository: ""
+      version: 0.1.0
+    - condition: global.mongodb.sharding.enabled
+      name: mongodb-sharded
+      repository: https://charts.bitnami.com/bitnami
+      version: 6.0.1
+    - condition: global.memcached.cluster.enabled
+      name: mcrouter
+      repository: https://evryfs.github.io/helm-charts/
+      version: 0.3.0
+    - condition: global.redis.cluster.enabled
+      name: redis-cluster
+      repository: https://charts.bitnami.com/bitnami
+      version: 8.1.4
+    - condition: global.redis.replication.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 17.3.7
+    description: Helm chart for SocialNetwork service in DeathStarBench
+    digest: e77f6aa28c95cfe7797421acefdb77098acd01e1e5f43d8b39ecc913429f0f8c
+    name: social-network
+    type: application
+    urls:
+    - social-network-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-10-23T10:42:24.54450716-07:00"
